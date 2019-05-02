@@ -21,19 +21,19 @@ for j = 0: N-1
     real(m) = real(m) + x(i+1)*cos(2*pi*i*j/N);
     img(m) = img(m) + x(i+1)*sin(2*pi*i*j/N);
   endfor
-  ampl(m) = sqrt(real(m)^2 + img(m)^2);
+  mag(m) = sqrt(real(m)^2 + img(m)^2);
   phase(m) = atan(img(m)/real(m));
   
-  if ampl(m)>.01 && j<=N/2
+  if mag(m)>.01 && j<=N/2
     in = in + 1;
     freq(in) = j*fs/N;
-    amplfq(in) = ampl(m);
+    ampl(in) = 2*mag(m)/N;
     phasefq(in) = phase(m);
   end
 endfor
 
 m = 1:N;
-disp(ampl);
+disp(mag);
 disp(freq);
-disp(phasefq);
-stem(m,ampl);
+disp(ampl);
+stem(m,mag);
