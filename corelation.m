@@ -10,7 +10,7 @@ clear
 x = [2,-1,3,7,1,2,-3];
 h = [1,-1,2,-2,4,1,-2,5];
 
-zxp = 5
+zxp = 5;
 zyp = 5;
 
 lnx = length(x);
@@ -32,7 +32,7 @@ end
 disp(y);
 %Z = conv(x,h)
 
-xfy = -(zxp+zyp-2):1:ln -(zxp+zyp-2)-1;
+xfy = -(zxp+zyp-3):1:ln -(zxp+zyp-3)-1;
 
 subplot(2,2,1);
 title("X = ");
