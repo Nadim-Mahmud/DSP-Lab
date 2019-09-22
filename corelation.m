@@ -8,27 +8,33 @@ clear
 % h = input(prompt2);
 
 x = [2,-1,3,7,1,2,-3];
-y = [1,-1,2,-2,4,1,-2,5];
-zx = 5;
-zy = 5;
+h = [1,-1,2,-2,4,1,-2,5];
+
+zxp = 5
+zyp = 5;
 
 lnx = length(x);
 lnh = length(h);
 ln = length(x) + length(h)-1;
 
-in=0;
-for i = 1 : ln
-    tmp = 0; 
-    for j = 1:lnh
-        p = j + i;
-        if (p>=0&&p<lnx)
-            tmp =  tmp + h(j)*x(p+1);
-        end
-    end
-    in = in + 1;
-    sum(in) = tmp; 
-end
-    
-disp(sum);
+x = [x,zeros(1,lnx)];
+h = [fliplr(h),zeros(1,lnh)];
 
+for i = 1 : ln
+  y(i) = 0;
+  for j = 1 : lnx
+    if (i-j+1>0)
+      y(i) = y(i) + x(j)*h(i-j+1);  
+    end 
+  end
+end
+
+disp(y);
+%Z = conv(x,h)
+
+xfy = -(zxp+zyp-2):1:ln -(zxp+zyp-2)-1;
+
+subplot(2,2,1);
+title("X = ");
+stem(xfy,y);
 
