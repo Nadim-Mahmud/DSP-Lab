@@ -16,11 +16,12 @@ x = sin(2*pi*1000*n*ts)+0.5*sin(2*pi*2000*n*ts+3*pi/4);
 
 for j = 0: N-1
   m = j+1;
-  real(m) = img(m) = 0;
+  real(m) = 0;
+  img(m) = 0;
   for i = 0: N-1
     real(m) = real(m) + x(i+1)*cos(2*pi*i*j/N);
     img(m) = img(m) + x(i+1)*sin(2*pi*i*j/N);
-  endfor
+  end
   mag(m) = sqrt(real(m)^2 + img(m)^2);
   phase(m) = atan(img(m)/real(m));
   
@@ -30,7 +31,7 @@ for j = 0: N-1
     ampl(in) = 2*mag(m)/N;
     phasefq(in) = phase(m);
   end
-endfor
+end
 
 m = 1:N;
 disp(mag);
