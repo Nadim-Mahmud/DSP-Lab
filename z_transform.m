@@ -8,7 +8,7 @@ n = length(x);
 y = sym('z');
 
 for i =  1:n
-    b = b + x(i)*y^(i-zero);
+    b = b + x(i)*y^(i-zero_pos);
 end
 
 disp(b);
