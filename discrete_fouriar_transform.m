@@ -34,16 +34,17 @@ for j = 0: N-1
   mag(m) = sqrt(real(m)^2 + img(m)^2);
   power(m) = mag(m)* mag(m);
   phase(m) = atan(img(m)/real(m));
- 
+  freq(j+1) = j*fs/N;
+  
   if mag(m)>.01 && j<=N/2
     in = in + 1;
-    freq(in) = j*fs/N;
+    
     ampl(in) = 2*mag(m)/N;
     phasefq(in) = phase(m);
   end
 end
 
-m = 1:N;
+m = 0:N-1;
 
 disp(mag);
 disp(freq);
@@ -62,7 +63,7 @@ subplot(3,1,3);
 stem(m,power);
 title('Power spectrum');
 
-
+disp("----------------------------")
 
 %Inverse DFT
 disp(mag);
