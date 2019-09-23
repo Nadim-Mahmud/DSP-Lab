@@ -3,7 +3,7 @@ close;
 clear;
 
 
-N = 32;
+N = 8;
 n = 0:1:N-1;
 
 %reqtanguler
@@ -19,12 +19,21 @@ title('Rectangal Window');
 
 %Trianguler
 
-for i = 1:N/2
+nl = floor(N/2);
+nr = ceil(N/2);
+
+if mod(N,2) == 0
+  nl = N/2;
+  nr = N/2+1;
+end
+  
+
+for i = 1:nl
   w(i) = (i-1)/(N/2);
 endfor
 
 
-for i = N/2+1:N
+for i = nr:N
   w(i) = 2 - (i-1)/(N/2);
 endfor
 
